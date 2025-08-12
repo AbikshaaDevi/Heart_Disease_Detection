@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Heart Disease Prediction</title>
+</head>
+<body style="background-color:#f7c0c0; font-family:Arial, sans-serif;">
+
+<div style="width:50%; margin:auto; background:rgb(255, 213, 121); padding:20px; border-radius:15px; margin-top:50px; box-shadow:0 0 10px rgba(0,0,0,0.1);">
+    <h2 style="text-align:center;">Heart Disease Prediction (SVM)</h2>
+    <form action="/predict" method="post" style="text-align:center;">
+
+        <div style="margin-bottom:15px;">
+            <label style="display:inline-block; width:250px; text-align:right; margin-right:10px;">Age:</label>
+            <input type="number" name="age" step="any" required style="width:150px;">
+        </div>
+
+        <div style="margin-bottom:15px;">
+            <label style="display:inline-block; width:250px; text-align:right; margin-right:10px;">Sex (1=Male, 0=Female):</label>
+            <input type="number" name="sex" min="0" max="1" required style="width:150px;">
+        </div>
+
+        <div style="margin-bottom:15px;">
+            <label style="display:inline-block; width:250px; text-align:right; margin-right:10px;">Chest Pain Type (0-3):</label>
+            <input type="number" name="cp" min="0" max="3" required style="width:150px;">
+        </div>
+
+        <div style="margin-bottom:15px;">
+            <label style="display:inline-block; width:250px; text-align:right; margin-right:10px;">Max Heart Rate (thalach):</label>
+            <input type="number" name="thalach" step="any" required style="width:150px;">
+        </div>
+
+        <div style="margin-bottom:15px;">
+            <label style="display:inline-block; width:250px; text-align:right; margin-right:10px;">Exercise Induced Angina (1=Yes, 0=No):</label>
+            <input type="number" name="exang" min="0" max="1" required style="width:150px;">
+        </div>
+
+        <div style="margin-bottom:15px;">
+            <label style="display:inline-block; width:250px; text-align:right; margin-right:10px;">ST Depression (oldpeak):</label>
+            <input type="number" name="oldpeak" step="any" required style="width:150px;">
+        </div>
+
+        <div style="margin-bottom:15px;">
+            <label style="display:inline-block; width:250px; text-align:right; margin-right:10px;">Major Vessels (0-3):</label>
+            <input type="number" name="ca" min="0" max="3" required style="width:150px;">
+        </div>
+
+        <div style="margin-bottom:15px;">
+            <label style="display:inline-block; width:250px; text-align:right; margin-right:10px;">Thal (1=Normal, 2=Fixed Defect, 3=Reversible Defect):</label>
+            <input type="number" name="thal" min="1" max="3" required style="width:150px;">
+        </div>
+
+        <input type="submit" value="Predict" style="background-color:#4CAF50; color:white; padding:10px 20px; border:none; border-radius:10px; cursor:pointer;">
+    </form>
+
+    {% if prediction_text %}
+    <h3 style="text-align:center; color:blue; margin-top:20px;">{{ prediction_text }}</h3>
+    {% endif %}
+</div>
+
+</body>
+</html>
